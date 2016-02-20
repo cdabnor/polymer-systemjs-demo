@@ -8,8 +8,10 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 
+<script src="../systemjs/dist/system.js"></script>
+<script src="config.js"></script>
 <link rel="import" href="../polymer/polymer.html">
-<script src="../moment/moment.js"></script>
+<link rel="import" href="../promise-polyfill/promise-polyfill.html">
 
 <!--
 An element providing a solution to no problem in particular.
@@ -39,43 +41,49 @@ Example:
   </template>
 
   <script>
-    Polymer({
-      is: 'my-component',
+    Promise.all([
+      System.import('moment')
+    ]).then(function(modules) {
+      var moment = modules[0];
 
-      properties: {
-      },
+      Polymer({
+        is: 'my-component',
 
-      // Element Lifecycle
+        properties: {
+        },
 
-      ready: function() {
-        // `ready` is called after all elements have been configured, but
-        // propagates bottom-up. This element's children are ready, but parents
-        // are not.
-        //
-        // This is the point where you should make modifications to the DOM (when
-        // necessary), or kick off any processes the element wants to perform.
-      },
+        // Element Lifecycle
 
-      attached: function() {
-        // `attached` fires once the element and its parents have been inserted
-        // into a document.
-        //
-        // This is a good place to perform any work related to your element's
-        // visual state or active behavior (measuring sizes, beginning animations,
-        // loading resources, etc).
-      },
+        ready: function() {
+          // `ready` is called after all elements have been configured, but
+          // propagates bottom-up. This element's children are ready, but parents
+          // are not.
+          //
+          // This is the point where you should make modifications to the DOM (when
+          // necessary), or kick off any processes the element wants to perform.
+        },
 
-      detached: function() {
-        // The analog to `attached`, `detached` fires when the element has been
-        // removed from a document.
-        //
-        // Use this to clean up anything you did in `attached`.
-      },
+        attached: function() {
+          // `attached` fires once the element and its parents have been inserted
+          // into a document.
+          //
+          // This is a good place to perform any work related to your element's
+          // visual state or active behavior (measuring sizes, beginning animations,
+          // loading resources, etc).
+        },
 
-      // Element Behavior
-      _handleClick: function() {
-        console.log('my-component: moment version: ' + moment.version);
-      }
+        detached: function() {
+          // The analog to `attached`, `detached` fires when the element has been
+          // removed from a document.
+          //
+          // Use this to clean up anything you did in `attached`.
+        },
+
+        // Element Behavior
+        _handleClick: function() {
+          console.log('my-component: moment version: ' + moment.version);
+        }
+      });
     });
   </script>
 </dom-module>

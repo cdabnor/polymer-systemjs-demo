@@ -18,7 +18,9 @@
     "/test/"
   ],
   "dependencies": {
+    "systemjs": "systemjs/systemjs#~0.19.22",
     "polymer": "Polymer/polymer#^1.2.0",
+    "promise-polyfill": "polymerlabs/promise-polyfill#^1.0.0",
     "moment": "2.11.0"
   },
   "devDependencies": {
