@@ -19,9 +19,11 @@
   ],
   "dependencies": {
     "systemjs": "systemjs/systemjs#~0.19.22",
+    "systemjs-plugin-html": "Hypercubed/systemjs-plugin-html#~0.0.7",
     "polymer": "Polymer/polymer#^1.2.0",
     "promise-polyfill": "polymerlabs/promise-polyfill#^1.0.0",
-    "moment": "2.11.0"
+    "moment": "2.11.0",
+    "paper-spinner": "polymerelements/paper-spinner#^1.1.0"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",

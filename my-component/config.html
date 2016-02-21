@@ -1,0 +1,19 @@
+<script src="../systemjs/dist/system.js"></script>
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../promise-polyfill/promise-polyfill.html">
+<script>
+System.config({
+	baseURL: "http://localhost:8080/bower_components/",
+	defaultJSExtensions: true,
+
+	map: {
+		"html": "systemjs-plugin-html/html.js",
+		"moment": "moment/moment.js"
+	},
+
+	meta: {
+	}
+});
+
+System.import('my-component/my-component.js');
+</script>
